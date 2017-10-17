@@ -1,0 +1,11 @@
+.content{
+    border: 1px solid #d9d9d9;
+    margin-left: 203px;
+    position: inherit;
+    min-height: 568px;
+    border-radius: 0.25rem;
+}
+
+.menubar{
+    position :absolute;
+}

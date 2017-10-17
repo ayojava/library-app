@@ -1,3 +1,20 @@
-<h1>
-  {{title}}
-</h1>
+<body class="m-1">
+
+  <app-header></app-header>
+  <div class="mt-2">
+      <div class="menubar">
+          <app-menu></app-menu>
+      </div>
+      <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+          
+      </div>
+  </div>
+  
+</body>
