@@ -15,9 +15,9 @@ export class MenuComponent implements OnInit {
     this.tieredMenuItems=[
       { label :'Home',icon :'fa-home',routerLink:['/home']},
       { separator : true },
-      { label :'BookShelve',icon :'fa-tasks',routerLink:['/bookShelve']},
+      { label :'BookShelve',icon :'fa-tasks',routerLink:['/listBookShelves']},
       { separator : true },
-      { label :'Book',icon :'fa-book',routerLink:['/book']},
+      { label :'Book',icon :'fa-book',routerLink:['/listBooks']},
       { separator : true },
       { label :'Member',icon :'fa fa-user-circle-o',routerLink:['/member']}
     ];

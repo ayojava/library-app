@@ -11,10 +11,11 @@ import { InputTextModule, ButtonModule,DataTableModule,SharedModule,DialogModule
          TieredMenuModule,MenuItem } from 'primeng/primeng';
 import { HomeComponent } from './include/home/home.component';
 import { AppRoutesModule } from './app-routes/app-routes.module';
+import { ListBookShelvesComponent } from './include/list-book-shelves/list-book-shelves.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent, MenuComponent, HomeComponent
+    AppComponent, HeaderComponent, MenuComponent, HomeComponent, ListBookShelvesComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpModule,NgbModule.forRoot(),TieredMenuModule,
