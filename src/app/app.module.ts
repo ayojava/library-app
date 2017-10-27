@@ -12,6 +12,7 @@ import { InputTextModule, ButtonModule,DataTableModule,SharedModule,DialogModule
 import { HomeComponent } from './include/home/home.component';
 import { AppRoutesModule } from './app-routes/app-routes.module';
 import { ListBookShelvesComponent } from './include/list-book-shelves/list-book-shelves.component';
+import { BookShelveService } from 'app/services/book-shelve.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ListBookShelvesComponent } from './include/list-book-shelves/list-book-
     ButtonModule,InputTextModule ,DialogModule,SharedModule, DataTableModule,
     AppRoutesModule
   ],
-  providers: [],
+  providers: [BookShelveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

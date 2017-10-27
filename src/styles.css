@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.table td, .table th {
+    padding: 0.25rem !important;
+}
+
+body{
+    line-height: 1.2 !important;
+}
+
+.table-icon{
+    height:16px;
+    width:16px;
+}
+
+.round-button{
+    background-image: linear-gradient(to bottom, #fff 0px, #e0e0e0 100%);
+    background-repeat: repeat-x;
+    border-color: #ccc;
+    border-radius: 12px !important;
+    text-shadow: 0 1px 0 #fff;
+    padding: 2px;
+    border: 0px !important;
+}

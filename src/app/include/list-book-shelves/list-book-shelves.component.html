@@ -1,3 +1,47 @@
-<p>
-  list-book-shelves works!
-</p>
+<div class="row , mt-2">
+  <div class="col-md-6">
+    <i class="fa fa-list-ol fa-1g" style="color: #F08080"></i>
+    <span class="ml-2">BookShelve List</span> 
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right">
+      <button pButton type="button" class="round-button bg-secondary" icon="fa fa-fw fa-plus" 
+      label="New"></button>
+
+      <button pButton type="button" class="round-button bg-secondary ml-3" icon="fa fa-fw fa-home" 
+      label="Home"></button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <hr class="my-2"/>
+  </div>
+</div>
+
+<div class="row">
+    <p-dataTable [value]="bookShelvesList" [rows]="50" [pageLinks]="5" [style]="{'margin-left':'2px','margin-right':'2px'}">
+      <p-column header="No" [style]="{'width':'60px','text-align':'center'}">
+        <ng-template pTemplate="body" let-index="rowIndex">
+            {{index + 1}}
+        </ng-template>
+      </p-column>
+      <p-column field="shelveName" header="Name" [style]="{'width':'170px','text-align':'center'}"></p-column>
+      <p-column field="shelveCode" header="Code" [style]="{'width':'110px','text-align':'center'}"></p-column>
+      <p-column field="description" header="Description" [style]="{'width':'430px'}"></p-column>
+      <p-column header="Books" [style]="{'width':'90px','text-align':'center'}">
+        <ng-template let-bookShelve="rowData" pTemplate="body">
+          {{bookShelve.allBooks.length}}  
+        </ng-template>    
+      </p-column>
+      <p-column field="createDate" header="Create Date" [style]="{'text-align':'center'}"></p-column>
+      <p-column header="Actions" [style]="{'text-align':'center'}">
+        <ng-template let-bookShelve="rowData" pTemplate="body">
+          <img src="assets/images/icon/actions/edit.png" class="table-icon"/>
+          <span class="px-1">|</span>
+          <img src="assets/images/icon/actions/view.png" class="table-icon"/>
+        </ng-template>  
+      </p-column>
+    </p-dataTable>
+
+</div>
