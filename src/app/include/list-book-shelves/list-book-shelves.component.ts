@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookShelveService } from 'app/services/book-shelve.service';
 import { BookShelve } from 'app/model/bookShelve';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { Message } from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-list-book-shelves',
@@ -11,21 +13,39 @@ export class ListBookShelvesComponent implements OnInit {
 
   private bookShelvesList : BookShelve[];
 
-  constructor(private bookShelveService : BookShelveService) { 
+  private errorMessage : string;
+
+  private loadingImage : boolean;
+
+  msgs: Message[] = [];
+
+  constructor(private bookShelveService : BookShelveService,private  messageService: MessageService) { 
 
   }
 
   ngOnInit() {
-    this.bookShelveService.getBookShelvesList().subscribe(bookShelveJSONList => {
-        this.bookShelvesList = bookShelveJSONList;
-      });
-    /*
     this.bookShelveService.getBookShelvesList().subscribe(
-      jsonResponse => { console.log('Response Output :::: ' , jsonResponse);},
-      jsonError => {console.log('Error Output :::: ' , jsonError);},
-      ()=> {console.log('done!');}
+      success => {this.handleSuccess(success)},
+      error =>{this.handleError(error)},
+      ()=>{this.handleComplete()}
     );
-    */
   }
 
+  handleError(error : any){
+    this.errorMessage = error;
+    this.loadingImage = false;
+    this.messageService.add({severity:'error', summary:'Error Message', detail:'The Rest Server is offline'});
+  }
+
+  handleSuccess(success : any) : void{
+    this.bookShelvesList = success;
+  }
+
+  handleComplete():void{
+    this.loadingImage = false;
+  }
+
+  selectedBookShelf(bookShelve : BookShelve) : void{
+    
+  }
 }

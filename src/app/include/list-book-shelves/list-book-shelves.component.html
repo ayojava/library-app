@@ -5,11 +5,11 @@
   </div>
   <div class="col-md-6">
     <div class="pull-right">
-      <button pButton type="button" class="round-button bg-secondary" icon="fa fa-fw fa-plus" 
-      label="New"></button>
+      <button pButton type="button" class="round-button bg-secondary" icon="fa fa-fw fa-plus" label="New"
+      [routerLink]=" ['/newBookShelf'] "></button>
 
-      <button pButton type="button" class="round-button bg-secondary ml-3" icon="fa fa-fw fa-home" 
-      label="Home"></button>
+      <button pButton type="button" class="round-button bg-secondary ml-3" icon="fa fa-fw fa-home" label="Home"
+      [routerLink]=" ['/home'] "></button>
     </div>
   </div>
 </div>
@@ -20,13 +20,18 @@
 </div>
 
 <div class="row">
+    <p-growl [(value)]="msgs" [sticky]="true"></p-growl>
     <p-dataTable [value]="bookShelvesList" [rows]="50" [pageLinks]="5" [style]="{'margin-left':'2px','margin-right':'2px'}">
       <p-column header="No" [style]="{'width':'60px','text-align':'center'}">
         <ng-template pTemplate="body" let-index="rowIndex">
             {{index + 1}}
         </ng-template>
       </p-column>
-      <p-column field="shelveName" header="Name" [style]="{'width':'170px','text-align':'center'}"></p-column>
+      <p-column header="Name" [style]="{'width':'170px','text-align':'center'}">
+          <ng-template let-bookShelve="rowData" pTemplate="body">
+              {{bookShelve.shelveName | uppercase }}  
+          </ng-template>  
+      </p-column>
       <p-column field="shelveCode" header="Code" [style]="{'width':'110px','text-align':'center'}"></p-column>
       <p-column field="description" header="Description" [style]="{'width':'430px'}"></p-column>
       <p-column header="Books" [style]="{'width':'90px','text-align':'center'}">
@@ -37,9 +42,17 @@
       <p-column field="createDate" header="Create Date" [style]="{'text-align':'center'}"></p-column>
       <p-column header="Actions" [style]="{'text-align':'center'}">
         <ng-template let-bookShelve="rowData" pTemplate="body">
-          <img src="assets/images/icon/actions/edit.png" class="table-icon"/>
-          <span class="px-1">|</span>
-          <img src="assets/images/icon/actions/view.png" class="table-icon"/>
+            <a [routerLink]="['/viewBookShelf', bookShelve.id]">
+              <img src="assets/images/icon/actions/view.png" alt="View" class="table-icon"/>
+            </a>
+            <span class="px-1">|</span>
+            <a [routerLink]="['/editBookShelf', bookShelve.id]">
+                <img src="assets/images/icon/actions/edit.png" alt="Edit" class="table-icon"/>
+            </a>  
+            <span class="px-1">|</span>
+            <a (click)="selectedBookShelf(bookShelve)">
+                <img src="assets/images/icon/actions/delete.png" alt="Delete" class="table-icon"/>
+            </a> 
         </ng-template>  
       </p-column>
     </p-dataTable>
