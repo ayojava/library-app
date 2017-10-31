@@ -76,43 +76,8 @@
         </div>   
   </div>
 
-  <div class="row" *ngIf="(formSubmitted && newBookShelveForm.invalid)">
-    <div class="col-md-12">
-        <pre>Required Length :::: {{shelveCode.errors.minLength.requiredLength}}</pre>  
-        <pre>Actual Value :::: {{shelveCode.errors.pattern.actualValue}}</pre>  
-    </div>  
-  </div>
-<!--
   
 
-  <div class=" form-group row">
-    <div class="col-md-2">
-      <label for="shelveDescTxt" class="col-form-label mr-2">Description</label>
-    </div>
-    <div class="col-md-10">
-      <input type="text" pInputText class="form-control form-control-sm w-50" name="shelveDescTxt" placeholder="Description Of Shelve" 
-      id="shelveDescTxt" required [(ngModel)]="bookShelveObj.description" #shelveDesc="ngModel" 
-      [ngClass]="{'border-danger':shelveDesc.invalid && (shelveDesc.dirty || shelveDesc.touched)}"/>
-
-      <div class="invalid-feedback" *ngIf="shelveDesc.errors && (shelveDesc.dirty || shelveDesc.touched)">
-        <p *ngIf="shelveDesc.errors.required">Shelve Description is required</p>
-      </div>
-    </div> 
-
-  </div>
-
-  
-      
-    
-      <div class=" form-group row">
-    <div class="col-md-12">
-      <pre>{{newBookShelveForm.value | json}}</pre>
-      <pre>{{shelveDesc.errors && (shelveDesc.dirty || shelveDesc.touched)}}</pre>
-      <pre>{{shelveDesc.errors}}</pre>
-      <pre>{{shelveDesc.errors.required}}</pre>   
-      </div>  
-  </div>
-    -->
     
 <!---->
 
